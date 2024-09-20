@@ -5,12 +5,15 @@ import { AiOutlineFire } from "react-icons/ai";
 import { FiMessageCircle } from "react-icons/fi";
 import { HiOutlineRocketLaunch } from "react-icons/hi2";
 import { formatDistanceToNow } from "date-fns";
+import { useNotificationsStore } from "../notificationsStore";
 
 export const NotificationItem = ({
   notification,
 }: {
   notification: Notification;
 }) => {
+  const markAsRead = useNotificationsStore((state) => state.markAsRead);
+
   const containerClass = classNames({
     [styles.notificationItem]: true,
     [styles.notificationItem_unread]: notification.isUnread,
@@ -81,7 +84,12 @@ export const NotificationItem = ({
           {formatDistanceToNow(notification.timestamp, { addSuffix: true })}
         </div>
       </div>
-      {notification.isUnread && <div className={styles.unreadIndicator}></div>}
+      {notification.isUnread && (
+        <div
+          className={styles.unreadIndicator}
+          onClick={() => markAsRead(notification.id)}
+        ></div>
+      )}
     </li>
   );
 };

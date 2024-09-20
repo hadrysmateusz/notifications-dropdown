@@ -1,8 +1,10 @@
 import styles from "./NotificationsDropdown.module.css";
-import { notifications } from "./notifications";
 import { NotificationItem } from "./NotificationItem";
+import { useNotificationsStore } from "../notificationsStore";
 
 export const NotificationsDropdown = () => {
+  const notifications = useNotificationsStore((state) => state.notifications);
+
   return (
     <div className={styles.notificationsDropdownOuter}>
       <div className={styles.notificationsDropdownInner}>
