@@ -27,7 +27,6 @@ export type Notification = {
     }
 );
 
-// TODO: move to a zustand store
 export const notifications: Notification[] = [
   {
     id: "1",
