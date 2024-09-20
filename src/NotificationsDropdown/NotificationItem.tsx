@@ -86,9 +86,11 @@ export const NotificationItem = ({
       </div>
       {notification.isUnread && (
         <div
-          className={styles.unreadIndicator}
+          className={styles.unreadIndicatorClickWrapper}
           onClick={() => markAsRead(notification.id)}
-        ></div>
+        >
+          <div className={styles.unreadIndicator} />
+        </div>
       )}
     </li>
   );
