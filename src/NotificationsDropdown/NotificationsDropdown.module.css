@@ -2,13 +2,14 @@
   position: absolute;
   right: 0;
   padding: 8px;
+  width: 100vw;
+  max-width: 600px;
 }
 
 .notificationsDropdownInner {
   background-color: white;
   border-radius: 8px;
   padding: 16px;
-  width: 500px;
 }
 
 .header {

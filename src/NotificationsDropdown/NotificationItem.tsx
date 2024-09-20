@@ -1,6 +1,9 @@
 import styles from "./NotificationItem.module.css";
 import classNames from "classnames";
 import { Notification, NotificationTypes } from "./notifications";
+import { AiOutlineFire } from "react-icons/ai";
+import { FiMessageCircle } from "react-icons/fi";
+import { HiOutlineRocketLaunch } from "react-icons/hi2";
 
 export const NotificationItem = ({
   notification,
@@ -10,6 +13,16 @@ export const NotificationItem = ({
   const containerClass = classNames({
     [styles.notificationItem]: true,
     [styles.notificationItem_unread]: notification.isUnread,
+  });
+
+  const typeIconClass = classNames({
+    [styles.notificationTypeIcon]: true,
+    [styles.notificationTypeIcon_fullPermitRequest]:
+      notification.type === NotificationTypes.FULL_PERMIT_REQUEST,
+    [styles.notificationTypeIcon_newProductLaunch]:
+      notification.type === NotificationTypes.NEW_PRODUCT_LAUNCH,
+    [styles.notificationTypeIcon_newFeature]:
+      notification.type === NotificationTypes.NEW_FEATURE,
   });
 
   let contentBody;
@@ -43,9 +56,24 @@ export const NotificationItem = ({
       contentBody = <></>;
   }
 
+  let typeIcon;
+  switch (notification.type) {
+    case "FULL_PERMIT_REQUEST":
+      typeIcon = <FiMessageCircle />;
+      break;
+    case "NEW_PRODUCT_LAUNCH":
+      typeIcon = <HiOutlineRocketLaunch />;
+      break;
+    case "NEW_FEATURE":
+      typeIcon = <AiOutlineFire />;
+      break;
+    default:
+      typeIcon = <></>;
+  }
+
   return (
     <li className={containerClass}>
-      <div className={styles.notificationTypeIcon}></div>
+      <div className={typeIconClass}>{typeIcon}</div>
       <div className={styles.contentContainer}>
         <div className={styles.contentBody}>{contentBody}</div>
         <div className={styles.timestamp}>Yesterday</div>
