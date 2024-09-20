@@ -41,3 +41,6 @@ export const useNotificationsStore = create<NotificationsState>((set) => ({
     });
   },
 }));
+
+export const getUnreadCount = (notifications: Notification[]) =>
+  notifications.filter((n) => n.isUnread).length;
