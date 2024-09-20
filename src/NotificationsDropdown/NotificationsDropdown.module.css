@@ -1,0 +1,12 @@
+.notificationsDropdownOuter {
+  position: absolute;
+  right: 0;
+  padding: 8px;
+}
+
+.notificationsDropdownInner {
+  background-color: white;
+  border-radius: 8px;
+  padding: 16px;
+  width: 500px;
+}
