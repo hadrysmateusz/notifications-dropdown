@@ -8,6 +8,15 @@ export const NotificationsDropdown = () => {
   const markAllAsRead = useNotificationsStore((state) => state.markAllAsRead);
   const unreadCount = getUnreadCount(notifications);
 
+  const showOnlyUnread = useNotificationsStore((state) => state.showOnlyUnread);
+  const setShowOnlyUnread = useNotificationsStore(
+    (state) => state.setShowOnlyUnread,
+  );
+
+  const filteredNotifications = showOnlyUnread
+    ? notifications.filter((n) => n.isUnread)
+    : notifications;
+
   return (
     <div className={styles.notificationsDropdownOuter}>
       <div className={styles.notificationsDropdownInner}>
@@ -15,18 +24,27 @@ export const NotificationsDropdown = () => {
           Notifications
           <CountBadge count={unreadCount} />
         </div>
-        <div className={styles.actionsBar} onClick={() => markAllAsRead()}>
-          <button>Mark all as read</button>
+        <div className={styles.actionsBar}>
+          <button onClick={() => setShowOnlyUnread(false)}>
+            All Notifications
+          </button>
+          <button onClick={() => setShowOnlyUnread(true)}>
+            Unread Notifications
+          </button>
+          <button onClick={() => markAllAsRead()}>Mark all as read</button>
         </div>
-        {/* TODO: empty state */}
-        <ul className={styles.notificationsList}>
-          {notifications.map((notification) => (
-            <NotificationItem
-              notification={notification}
-              key={notification.id}
-            />
-          ))}
-        </ul>
+        {filteredNotifications.length > 0 ? (
+          <ul className={styles.notificationsList}>
+            {filteredNotifications.map((notification) => (
+              <NotificationItem
+                notification={notification}
+                key={notification.id}
+              />
+            ))}
+          </ul>
+        ) : (
+          <div className={styles.emptyState}>No notifications</div>
+        )}
       </div>
     </div>
   );

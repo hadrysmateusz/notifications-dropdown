@@ -8,6 +8,8 @@ export interface NotificationsState {
   notifications: Notification[];
   markAsRead: (id: string) => void;
   markAllAsRead: () => void;
+  showOnlyUnread: boolean;
+  setShowOnlyUnread: (showOnlyUnread: boolean) => void;
 }
 
 export const useNotificationsStore = create<NotificationsState>((set) => ({
@@ -40,6 +42,8 @@ export const useNotificationsStore = create<NotificationsState>((set) => ({
       return { notifications: newNotifications };
     });
   },
+  showOnlyUnread: false,
+  setShowOnlyUnread: (showOnlyUnread: boolean) => set({ showOnlyUnread }),
 }));
 
 export const getUnreadCount = (notifications: Notification[]) =>

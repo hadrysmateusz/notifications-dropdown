@@ -37,3 +37,13 @@
   max-height: min(700px, 100vh - 240px);
   overflow: auto;
 }
+
+.emptyState {
+  background-color: #dedeea;
+  border-radius: 8px;
+  color: #656c72;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
