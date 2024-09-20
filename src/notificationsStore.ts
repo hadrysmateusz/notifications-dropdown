@@ -31,7 +31,6 @@ export const useNotificationsStore = create<NotificationsState>((set) => ({
   markAllAsRead: () => {
     set((state) => {
       if (state.notifications.every((n) => !n.isUnread)) return {};
-      console.log("foo");
 
       const newNotifications = state.notifications.map((n) => {
         const newNotification = structuredClone(n) as Notification;
