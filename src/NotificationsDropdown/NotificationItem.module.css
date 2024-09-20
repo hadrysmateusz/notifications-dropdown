@@ -1,0 +1,50 @@
+.notificationItem {
+  display: grid;
+  align-items: center;
+  gap: 16px;
+  grid-template-columns: 52px 1fr;
+  cursor: pointer;
+  padding: 16px 12px;
+  border-radius: 6px;
+  position: relative;
+}
+
+.notificationItemUnread {
+  background-color: #ebebf1;
+}
+
+.contentContainer {
+
+}
+
+.notificationTypeIcon {
+  border-radius: 100%;
+  background-color: gray;
+  padding: 8px;
+  width: 52px;
+  height: 52px;
+
+  > svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.contentBody {
+
+}
+
+.timestamp {
+
+}
+
+.unreadIndicator {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  background-color: #1b46d2;
+  width: 12px;
+  height: 12px;
+  border-radius: 100%;
+}

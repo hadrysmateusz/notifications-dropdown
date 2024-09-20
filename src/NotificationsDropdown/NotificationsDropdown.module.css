@@ -10,3 +10,24 @@
   padding: 16px;
   width: 500px;
 }
+
+.header {
+  font-size: 3em;
+  font-weight: bold;
+}
+
+.actionsBar {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-bottom: 16px;
+}
+
+.notificationsList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+}
