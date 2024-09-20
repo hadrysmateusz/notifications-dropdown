@@ -34,7 +34,7 @@
   gap: 8px;
   padding: 0;
   margin: 0;
-  max-height: min(700px, 100vh - 240px);
+  max-height: min(700px, 100vh - 250px);
   overflow: auto;
 }
 
@@ -46,4 +46,33 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.button {
+  background-color: white;
+  font-size: 1em;
+  padding: 0 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #444;
+  font-weight: bold;
+  border: none;
+
+  --button-height: 40px;
+  height: var(--button-height);
+  border-radius: calc(var(--button-height) / 2);
+}
+
+.button_primary {
+  border: 1px solid #2c2e2f;
+}
+
+.button_secondary {
+  background-color: #e3e8ec;
+}
+
+.button_text {
+  color: #235cce;
+  font-size: 0.85em;
 }
