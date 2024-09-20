@@ -4,6 +4,7 @@ import { Notification, NotificationTypes } from "./notifications";
 import { AiOutlineFire } from "react-icons/ai";
 import { FiMessageCircle } from "react-icons/fi";
 import { HiOutlineRocketLaunch } from "react-icons/hi2";
+import { formatDistanceToNow } from "date-fns";
 
 export const NotificationItem = ({
   notification,
@@ -76,7 +77,9 @@ export const NotificationItem = ({
       <div className={typeIconClass}>{typeIcon}</div>
       <div className={styles.contentContainer}>
         <div className={styles.contentBody}>{contentBody}</div>
-        <div className={styles.timestamp}>Yesterday</div>
+        <div className={styles.timestamp}>
+          {formatDistanceToNow(notification.timestamp, { addSuffix: true })}
+        </div>
       </div>
       {notification.isUnread && <div className={styles.unreadIndicator}></div>}
     </li>

@@ -40,7 +40,7 @@ export const notifications: Notification[] = [
   },
   {
     id: "2",
-    timestamp: 1726825507313,
+    timestamp: 1726725507313,
     isUnread: false,
     type: "NEW_PRODUCT_LAUNCH",
     productName: "ACME Product",
@@ -61,7 +61,7 @@ export const notifications: Notification[] = [
   },
   {
     id: "5",
-    timestamp: 1726825437313,
+    timestamp: 1726815437313,
     isUnread: true,
     type: "NEW_FEATURE",
     featureName: "ACME Feature",
