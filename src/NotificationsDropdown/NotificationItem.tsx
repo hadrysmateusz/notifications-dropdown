@@ -9,7 +9,7 @@ export const NotificationItem = ({
 }) => {
   const containerClass = classNames({
     [styles.notificationItem]: true,
-    [styles.notificationItemUnread]: notification.isUnread,
+    [styles.notificationItem_unread]: notification.isUnread,
   });
 
   let contentBody;
@@ -44,11 +44,11 @@ export const NotificationItem = ({
   }
 
   return (
-    <li className={styles.notificationItem}>
+    <li className={containerClass}>
       <div className={styles.notificationTypeIcon}></div>
       <div className={styles.contentContainer}>
         <div className={styles.contentBody}>{contentBody}</div>
-        <div className={styles.timestamp}></div>
+        <div className={styles.timestamp}>Yesterday</div>
       </div>
       {notification.isUnread && <div className={styles.unreadIndicator}></div>}
     </li>
